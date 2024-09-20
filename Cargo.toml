@@ -33,7 +33,9 @@ stable_deref_trait = { version = "1.1.0", default-features = false, optional = t
 core = { version = "1.0.0", optional = true, package = "rustc-std-workspace-core" }
 alloc = { version = "1.0.0", optional = true, package = "rustc-std-workspace-alloc" }
 compiler_builtins = { version = "0.1.2", optional = true }
-portable-atomic-util = { version = "0.2.2", optional = true }
+portable-atomic-util = { version = "0.2.2", features = [
+    "alloc",
+], optional = true }
 
 [dev-dependencies]
 test-assembler = "0.1.3"
