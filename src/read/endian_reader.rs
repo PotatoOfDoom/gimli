@@ -3,7 +3,10 @@
 use alloc::borrow::Cow;
 use alloc::rc::Rc;
 use alloc::string::String;
+#[cfg(not(feature = "portable-atomic"))]
 use alloc::sync::Arc;
+#[cfg(feature = "portable-atomic")]
+use portable_atomic_util::Arc;
 use core::fmt::Debug;
 use core::hash::{Hash, Hasher};
 use core::ops::{Deref, Index, Range, RangeFrom, RangeTo};

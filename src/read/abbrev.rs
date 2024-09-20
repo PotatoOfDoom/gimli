@@ -1,7 +1,10 @@
 //! Functions for parsing DWARF debugging abbreviations.
 
 use alloc::collections::btree_map;
+#[cfg(not(feature = "portable-atomic"))]
 use alloc::sync::Arc;
+#[cfg(feature = "portable-atomic")]
+use portable_atomic_util::Arc;
 use alloc::vec::Vec;
 use core::convert::TryFrom;
 use core::fmt::{self, Debug};

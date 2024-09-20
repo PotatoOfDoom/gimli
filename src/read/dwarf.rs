@@ -1,5 +1,8 @@
 use alloc::string::String;
+#[cfg(not(feature = "portable-atomic"))]
 use alloc::sync::Arc;
+#[cfg(feature = "portable-atomic")]
+use portable_atomic_util::Arc;
 
 use crate::common::{
     DebugAddrBase, DebugAddrIndex, DebugInfoOffset, DebugLineStrOffset, DebugLocListsBase,
